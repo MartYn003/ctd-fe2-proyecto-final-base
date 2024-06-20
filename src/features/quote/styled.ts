@@ -1,5 +1,15 @@
 import styled, { css } from "styled-components";
 
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  "aria-label"?: string;
+  onClick?: () => void;
+  secondary?: boolean;
+}
+
+interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+
+}
+
 export const ContenedorCita = styled.div`
   display: flex;
   flex-direction: column;
@@ -33,7 +43,7 @@ export const AutorCita = styled.p`
   min-height: 3rem;
 `;
 
-export const Input = styled.input`
+export const Input = styled.input<InputProps>`
   width: 60%;
   height: 50px;
   border-radius: 5px;
@@ -44,7 +54,7 @@ export const Input = styled.input`
   font-family: "Homer Simpson Revised", sans-serif;
 `;
 
-export const Boton = styled.button<{ secondary?: boolean }>`
+export const Boton = styled.button<ButtonProps>`
   width: 45%;
   min-width: 250px;
   height: 50px;

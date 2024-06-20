@@ -1,5 +1,22 @@
 import styled from "styled-components";
 
+interface ImagenTarjetaNoticiaProps {
+  src: string;
+  alt?: string;
+}
+
+interface ImagenModal {
+  src: string;
+  alt?: string;
+}
+
+interface ButtonProps {
+  children: React.ReactNode;
+  "aria-label"?: string;
+  onClick?: () => void;
+  secondary?: boolean;
+}
+
 export const ContenedorNoticias = styled.div`
   display: flex;
   flex-direction: column;
@@ -54,7 +71,7 @@ export const TarjetaNoticia = styled.div`
   }
 `;
 
-export const ImagenTarjetaNoticia = styled.img`
+export const ImagenTarjetaNoticia = styled.img<ImagenTarjetaNoticiaProps>`
   width: 100%;
   height: 40%;
   object-fit: cover;
@@ -85,7 +102,7 @@ export const FechaTarjetaNoticia = styled.p`
   text-align: right;
 `;
 
-export const BotonLectura = styled.button`
+export const BotonLectura = styled.button<ButtonProps>`
   width: 100%;
   border: none;
   color: #fff;
@@ -138,7 +155,7 @@ export const TarjetaModal = styled.div`
   position: relative;
 `;
 
-export const CloseButton = styled.button`
+export const CloseButton = styled.button<ButtonProps>`
   width: 20px;
   height: 20px;
   padding: 0;
@@ -157,7 +174,7 @@ export const CloseButton = styled.button`
   }
 `;
 
-export const ImagenModal = styled.img`
+export const ImagenModal = styled.img<ImagenTarjetaNoticiaProps>`
   width: 60%;
   height: 100%;
 `;
@@ -193,7 +210,7 @@ export const DescripcionModal = styled.p`
   overflow-y: auto;
 `;
 
-export const BotonSuscribir = styled.button`
+export const BotonSuscribir = styled.button<ButtonProps>`
   width: 20%;
   min-width: 200px;
   border: none;
